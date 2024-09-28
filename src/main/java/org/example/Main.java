@@ -1,10 +1,9 @@
 package org.example;
 
-import jakarta.persistence.EntityManagerFactory;
-import org.example.config.HibernateConfig;
+import org.example.config.AppConfig;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory("persons");
+        AppConfig.startServer();
     }
 }
