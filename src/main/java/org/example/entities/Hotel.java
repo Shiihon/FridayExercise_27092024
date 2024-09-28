@@ -2,11 +2,14 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.dtos.HotelDTO;
+import org.example.dtos.RoomDTO;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -24,20 +27,18 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Room> rooms = new HashSet<>();
 
-    @Builder
-    public Hotel(String hotelName, String hotelAddress, Set<Room> rooms) {
-        this.hotelName = hotelName;
-        this.hotelAddress = hotelAddress;
-
-        if (rooms != null) {
-            this.rooms = rooms;
-            for (Room room : rooms) {
-                room.setHotel(this);
-            }
-
-        } else {
-            this.rooms = new HashSet<>(); // to prevent nullpointerexcep.
+    // Constructor for creating Hotel from HotelDTO
+    public Hotel(HotelDTO hotelDTO) {
+        this.hotelName = hotelDTO.getHotelName();
+        this.hotelAddress = hotelDTO.getHotelAddress();
+        for (RoomDTO roomDTO : hotelDTO.getRooms()) {
+            addRoom(new Room(roomDTO, this));
         }
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+        room.setHotel(this); // Set back-reference
     }
 
     @Override
@@ -49,13 +50,4 @@ public class Hotel {
                 ", Number of rooms = " + (rooms != null ? rooms.size() : 0) +
                 '}';
     }
-
-
-    //maybe not needed?
-//    public void addRoom(Room room) {
-//        if (this.rooms == null) {
-//            rooms = new HashSet<>();
-//        }
-//        rooms.add(room);
-//    }
 }

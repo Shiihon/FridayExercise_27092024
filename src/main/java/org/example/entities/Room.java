@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.dtos.RoomDTO;
 
 @Data
 @NoArgsConstructor
@@ -31,6 +32,13 @@ public class Room {
         this.price = price;
     }
 
+    // Constructor for creating Room from RoomDTO
+    public Room(RoomDTO roomDTO, Hotel hotel) {
+        this.roomNumber = roomDTO.getRoomNumber();
+        this.price = roomDTO.getPrice();
+        this.hotel = hotel;
+    }
+
     @Override
     public String toString() {
         return "Room { " +
@@ -40,6 +48,4 @@ public class Room {
                 ", Price = " + price +
                 " }";
     }
-
-
 }

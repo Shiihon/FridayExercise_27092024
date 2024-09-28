@@ -5,6 +5,8 @@ import org.example.daos.HotelDAO;
 import org.example.dtos.HotelDTO;
 import org.example.entities.Hotel;
 
+import java.util.Set;
+
 public class HotelController implements Controller {
     private HotelDAO hotelDAO;
 
@@ -14,7 +16,11 @@ public class HotelController implements Controller {
 
     @Override
     public void getAllHotels(Context ctx) {
+        Set<Hotel> hotels = hotelDAO.getAll();
 
+        Set<HotelDTO> hotelDTOs = HotelDTO.toHotelDTOList(hotels);
+        ctx.res().setStatus(200);
+        ctx.json(hotelDTOs, HotelDTO.class);
     }
 
     @Override
@@ -30,11 +36,22 @@ public class HotelController implements Controller {
 
     @Override
     public void createHotel(Context ctx) {
+        HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
 
+        Hotel newHotel = new Hotel(hotelDTO);
+        hotelDAO.create(newHotel);
+
+        ctx.res().setStatus(201);
     }
 
     @Override
     public void updateHotel(Context ctx) {
+        Long id = Long.parseLong(ctx.pathParam("id"));
+        HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
+
+        Hotel hotel = hotelDAO.getById(id);
+        hotelDAO.update(new Hotel(hotelDTO));
+
 
     }
 
