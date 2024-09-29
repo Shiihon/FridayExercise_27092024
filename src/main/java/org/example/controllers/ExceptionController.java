@@ -1,6 +1,5 @@
 package org.example.controllers;
 
-
 import org.example.exceptions.ApiException;
 import org.example.dtos.Message;
 import io.javalin.http.Context;

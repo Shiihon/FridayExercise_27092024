@@ -100,6 +100,7 @@ public class HotelDAO implements IDAO<HotelDTO> {
 
             em.getTransaction().commit();
             return new HotelDTO(existingHotel);
+
         } catch (RollbackException e) {
             throw new RollbackException(String.format("Unable to update hotel, with id: %d : %s", hoteldto.getId(), e.getMessage()));
         }

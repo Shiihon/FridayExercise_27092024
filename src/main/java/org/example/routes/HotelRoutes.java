@@ -17,12 +17,12 @@ public class HotelRoutes {
     public EndpointGroup getHotelRoutes() {
         return () -> {
 
-            get("/", hotelController::getAllHotels);
-            get("/{id}", hotelController::getHotelById);
+            get("/", hotelController::getAll);
+            get("/{id}", hotelController::getById);
             get("/{id}/rooms", hotelController::getAllRoomsByHotel);
-            post("/", hotelController::createHotel);
-            put("/{id}", hotelController::updateHotel);
-            delete("/{id}", hotelController::deleteHotel);
+            post("/", hotelController::create);
+            put("/{id}", hotelController::update);
+            delete("/{id}", hotelController::delete);
         };
     }
 }

@@ -1,10 +1,6 @@
 package org.example.daos;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.TypedQuery;
-import org.example.config.HibernateConfig;
+import jakarta.persistence.*;
 import org.example.dtos.RoomDTO;
 import org.example.entities.Hotel;
 import org.example.entities.Room;
@@ -50,7 +46,7 @@ public class RoomDAO implements IDAO<RoomDTO> {
             em.getTransaction().begin();
             Hotel foundHotel = em.find(Hotel.class, roomDTO.getHotelId());
             if (foundHotel == null) {
-                throw new IllegalArgumentException("Hotel with ID " + roomDTO.getHotelId() + " does not exist.");
+                throw new EntityNotFoundException("Hotel with ID " + roomDTO.getHotelId() + " does not exist.");
             }
 
             room.setHotel(foundHotel);
@@ -80,6 +76,9 @@ public class RoomDAO implements IDAO<RoomDTO> {
             }
             em.getTransaction().commit();
             return new RoomDTO(existingRoom);
+
+        } catch (RollbackException e) {
+            throw new RollbackException(String.format("Unable to update room, with id : %d : %s", roomDTO.getRoomId(), e.getMessage()));
         }
     }
 
@@ -87,9 +86,17 @@ public class RoomDAO implements IDAO<RoomDTO> {
     public void delete(Long id) {
         try (EntityManager em = emf.createEntityManager()) {
             Room room = em.find(Room.class, id);
+
+            if (room == null) {
+                throw new EntityNotFoundException(String.format("Room with id %d does not exist.", id));
+            }
+
             em.getTransaction().begin();
             em.remove(room);
             em.getTransaction().commit();
+
+        } catch (RollbackException e) {
+            throw new RollbackException(String.format("Unable to delete room, with id : %d : %s", id, e.getMessage()));
         }
     }
 }

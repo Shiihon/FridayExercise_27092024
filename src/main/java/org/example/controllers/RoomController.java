@@ -2,30 +2,30 @@ package org.example.controllers;
 
 import io.javalin.http.Context;
 import jakarta.persistence.EntityNotFoundException;
-import org.example.daos.HotelDAO;
-import org.example.dtos.HotelDTO;
+import org.example.daos.RoomDAO;
+import org.example.dtos.RoomDTO;
 import org.example.exceptions.ApiException;
 
 import java.util.Set;
 
-public class HotelController implements Controller {
-    private HotelDAO hotelDAO;
+public class RoomController implements Controller {
+    private RoomDAO roomDAO;
 
-    public HotelController(HotelDAO hotelDAO) {
-        this.hotelDAO = hotelDAO;
+    public RoomController(RoomDAO roomDAO) {
+        this.roomDAO = roomDAO;
     }
 
     @Override
     public void getAll(Context ctx) {
         try {
-            Set<HotelDTO> hotels = hotelDAO.getAll();
+            Set<RoomDTO> rooms = roomDAO.getAll();
 
-            if (hotels.isEmpty()) {
-                ctx.res().setStatus(404);
-                ctx.result("No Hotels found");
+            if (rooms.isEmpty()) {
+                ctx.status(404);
+                ctx.result("No rooms where found");
             } else {
                 ctx.res().setStatus(200);
-                ctx.json(hotels);
+                ctx.json(rooms);
             }
 
         } catch (Exception e) {
@@ -37,26 +37,10 @@ public class HotelController implements Controller {
     public void getById(Context ctx) {
         try {
             Long id = Long.parseLong(ctx.pathParam("id"));
-            HotelDTO hotel = hotelDAO.getById(id);
+            RoomDTO room = roomDAO.getById(id);
 
             ctx.res().setStatus(200);
-            ctx.json(hotel);
-
-        } catch (EntityNotFoundException e) {
-            throw new ApiException(404, e.getMessage());
-
-        } catch (Exception e) {
-            throw new ApiException(400, e.getMessage());
-        }
-    }
-
-    public void getAllRoomsByHotel(Context ctx) {
-        try {
-            Long id = Long.parseLong(ctx.pathParam("id"));
-            HotelDTO hotelDTO = hotelDAO.getById(id);
-            //getRoomsByID from DAO never used.
-                ctx.json(hotelDTO.getRooms());
-                ctx.res().setStatus(200);
+            ctx.json(room);
 
         } catch (EntityNotFoundException e) {
             throw new ApiException(404, e.getMessage());
@@ -69,15 +53,15 @@ public class HotelController implements Controller {
     @Override
     public void create(Context ctx) {
         try {
-            HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
-            HotelDTO newHotelDTO = hotelDAO.create(hotelDTO);
+            RoomDTO roomDTO = ctx.bodyAsClass(RoomDTO.class);
+            RoomDTO newRoomDTO = roomDAO.create(roomDTO);
 
-            if (newHotelDTO != null) {
+            if (newRoomDTO != null) {
                 ctx.res().setStatus(201);
-                ctx.json(newHotelDTO);
+                ctx.json(newRoomDTO);
             } else {
                 ctx.res().setStatus(400);
-                ctx.result("Hotel could not be created");
+                ctx.result("Room could not be created");
             }
 
         } catch (Exception e) {
@@ -89,15 +73,15 @@ public class HotelController implements Controller {
     public void update(Context ctx) {
         try {
             Long id = Long.parseLong(ctx.pathParam("id"));
-            HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
+            RoomDTO roomDTO = ctx.bodyAsClass(RoomDTO.class);
 
-            hotelDTO.setId(id);
-            HotelDTO updatedHotelDTO = hotelDAO.update(hotelDTO);
+            roomDTO.setRoomId(id);
+            RoomDTO updatedRoomDTO = roomDAO.update(roomDTO);
 
-                ctx.res().setStatus(200);
-                ctx.json(updatedHotelDTO);
+            ctx.res().setStatus(200);
+            ctx.json(updatedRoomDTO);
 
-        } catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new ApiException(404, e.getMessage());
 
         } catch (Exception e) {
@@ -110,10 +94,10 @@ public class HotelController implements Controller {
         try {
             Long id = Long.parseLong(ctx.pathParam("id"));
 
-            HotelDTO hotelDTO = new HotelDTO();
-            hotelDTO.setId(id);
+            RoomDTO roomDTO = new RoomDTO();
+            roomDTO.setRoomId(id);
 
-            hotelDAO.delete(id);
+            roomDAO.delete(id);
             ctx.res().setStatus(204);
 
         } catch (EntityNotFoundException e) {

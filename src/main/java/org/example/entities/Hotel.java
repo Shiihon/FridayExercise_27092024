@@ -2,8 +2,6 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.dtos.HotelDTO;
-import org.example.dtos.RoomDTO;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -22,7 +22,10 @@ PUT {{URL}}/1
 Content-Type: application/json
 
 {
-"hotelAddress" : "New updated address"
+"hotelAddress" : "Strandvejen 2, 2200 KBH N"
 }
+
+### Delete hotel by id.
+DELETE {{URL}}/7
 
 
