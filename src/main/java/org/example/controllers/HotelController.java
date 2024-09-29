@@ -1,9 +1,10 @@
 package org.example.controllers;
 
 import io.javalin.http.Context;
+import jakarta.persistence.EntityNotFoundException;
 import org.example.daos.HotelDAO;
 import org.example.dtos.HotelDTO;
-import org.example.entities.Hotel;
+import org.example.exceptions.ApiException;
 
 import java.util.Set;
 
@@ -16,47 +17,110 @@ public class HotelController implements Controller {
 
     @Override
     public void getAllHotels(Context ctx) {
-        Set<Hotel> hotels = hotelDAO.getAll();
+        try {
+            Set<HotelDTO> hotels = hotelDAO.getAll();
 
-        Set<HotelDTO> hotelDTOs = HotelDTO.toHotelDTOList(hotels);
-        ctx.res().setStatus(200);
-        ctx.json(hotelDTOs, HotelDTO.class);
+            if (hotels.isEmpty()) {
+                ctx.res().setStatus(404);
+                ctx.result("No Hotels found");
+            } else {
+                ctx.res().setStatus(200);
+                ctx.json(hotels);
+            }
+
+        } catch (Exception e) {
+            throw new ApiException(404, e.getMessage());
+        }
     }
 
     @Override
     public void getHotelById(Context ctx) {
-        Long id = Long.parseLong(ctx.pathParam("id"));
+        try {
+            Long id = Long.parseLong(ctx.pathParam("id"));
+            HotelDTO hotel = hotelDAO.getById(id);
 
-        Hotel hotel = hotelDAO.getById(id);
+            ctx.res().setStatus(200);
+            ctx.json(hotel);
 
-        HotelDTO hotelDTO = new HotelDTO(hotel);
-        ctx.res().setStatus(200);
-        ctx.json(hotelDTO, HotelDTO.class);
+        } catch (EntityNotFoundException e) {
+            throw new ApiException(404, e.getMessage());
+
+        } catch (Exception e) {
+            throw new ApiException(400, e.getMessage());
+        }
+    }
+
+    public void getAllRoomsByHotel(Context ctx) {
+        try {
+            Long id = Long.parseLong(ctx.pathParam("id"));
+            HotelDTO hotelDTO = hotelDAO.getById(id);
+            //getRoomsByID from DAO never used.
+                ctx.json(hotelDTO.getRooms());
+                ctx.res().setStatus(200);
+
+        } catch (EntityNotFoundException e) {
+            throw new ApiException(404, e.getMessage());
+
+        } catch (Exception e) {
+            throw new ApiException(400, e.getMessage());
+        }
     }
 
     @Override
     public void createHotel(Context ctx) {
-        HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
+        try {
+            HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
+            HotelDTO newHotelDTO = hotelDAO.create(hotelDTO);
 
-        Hotel newHotel = new Hotel(hotelDTO);
-        hotelDAO.create(newHotel);
+            if (newHotelDTO != null) {
+                ctx.res().setStatus(201);
+                ctx.json(newHotelDTO);
+            } else {
+                ctx.res().setStatus(400);
+                ctx.result("Hotel could not be created");
+            }
 
-        ctx.res().setStatus(201);
+        } catch (Exception e) {
+            throw new ApiException(400, e.getMessage());
+        }
     }
 
     @Override
     public void updateHotel(Context ctx) {
-        Long id = Long.parseLong(ctx.pathParam("id"));
-        HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
+        try {
+            Long id = Long.parseLong(ctx.pathParam("id"));
+            HotelDTO hotelDTO = ctx.bodyAsClass(HotelDTO.class);
 
-        Hotel hotel = hotelDAO.getById(id);
-        hotelDAO.update(new Hotel(hotelDTO));
+            hotelDTO.setId(id);
+            HotelDTO updatedHotelDTO = hotelDAO.update(hotelDTO);
 
+                ctx.res().setStatus(200);
+                ctx.json(updatedHotelDTO);
 
+        } catch (EntityNotFoundException e){
+            throw new ApiException(404, e.getMessage());
+
+        } catch (Exception e) {
+            throw new ApiException(400, e.getMessage());
+        }
     }
 
     @Override
     public void deleteHotel(Context ctx) {
+        try {
+            Long id = Long.parseLong(ctx.pathParam("id"));
 
+            HotelDTO hotelDTO = new HotelDTO();
+            hotelDTO.setId(id);
+
+            hotelDAO.delete(id);
+            ctx.res().setStatus(204);
+
+        } catch (EntityNotFoundException e) {
+            throw new ApiException(404, e.getMessage());
+
+        } catch (Exception e) {
+            throw new ApiException(400, e.getMessage());
+        }
     }
 }

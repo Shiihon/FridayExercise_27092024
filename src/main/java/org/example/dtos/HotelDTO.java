@@ -8,7 +8,6 @@ import org.example.entities.Hotel;
 import org.example.entities.Room;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,10 +29,6 @@ public class HotelDTO {
                 .collect(Collectors.toSet());
     }
 
-    public static Set<HotelDTO> toHotelDTOList(Set<Hotel> hotels) {
-        return hotels.stream().map(HotelDTO::new).collect(Collectors.toSet());
-    }
-
     @JsonIgnore
     public Hotel getAsEntity() {
         Set<Room> roomEntities;
@@ -46,9 +41,14 @@ public class HotelDTO {
         }
 
         return Hotel.builder()
+                .hotelId(id)
                 .hotelName(hotelName)
                 .hotelAddress(hotelAddress)
                 .rooms(roomEntities)
                 .build();
+    }
+
+    public static Set<HotelDTO> toHotelDTOList(Set<Hotel> hotels) {
+        return hotels.stream().map(HotelDTO::new).collect(Collectors.toSet());
     }
 }

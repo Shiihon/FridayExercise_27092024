@@ -9,7 +9,6 @@ import org.example.dtos.RoomDTO;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "room")
 public class Room {
@@ -19,24 +18,18 @@ public class Room {
     @Column(name = "room_id")
     private Long roomId;
     @ManyToOne
-    @JoinColumn(name = "hotel_id", nullable = false)
+   @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
     @Column(name = "room_number")
     private Integer roomNumber;
     private Double price;
 
     @Builder
-    public Room(Hotel hotel, Integer roomNumber, Double price) {
+    public Room(Long roomId, Hotel hotel, Integer roomNumber, Double price) {
+        this.roomId = roomId;
         this.hotel = hotel;
         this.roomNumber = roomNumber;
         this.price = price;
-    }
-
-    // Constructor for creating Room from RoomDTO
-    public Room(RoomDTO roomDTO, Hotel hotel) {
-        this.roomNumber = roomDTO.getRoomNumber();
-        this.price = roomDTO.getPrice();
-        this.hotel = hotel;
     }
 
     @Override

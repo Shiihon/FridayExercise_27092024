@@ -9,8 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "hotel")
@@ -24,21 +22,23 @@ public class Hotel {
     @Column(name = "hotel_address")
     private String hotelAddress;
     @EqualsAndHashCode.Exclude // spørg thomas, stack overflow uden exclude.
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Room> rooms = new HashSet<>();
+    @OneToMany(mappedBy = "hotel", orphanRemoval = true)
+    private Set<Room> rooms;
 
-    // Constructor for creating Hotel from HotelDTO
-    public Hotel(HotelDTO hotelDTO) {
-        this.hotelName = hotelDTO.getHotelName();
-        this.hotelAddress = hotelDTO.getHotelAddress();
-        for (RoomDTO roomDTO : hotelDTO.getRooms()) {
-            addRoom(new Room(roomDTO, this));
-        }
-    }
+    @Builder
+    public Hotel(Long hotelId, String hotelName, String hotelAddress, Set<Room> rooms) {
+        this.hotelId = hotelId;
+        this.hotelName = hotelName;
+        this.hotelAddress = hotelAddress;
 
-    public void addRoom(Room room) {
-        rooms.add(room);
-        room.setHotel(this); // Set back-reference
+       if(rooms != null) {
+           this.rooms = new HashSet<>();
+           for(Room room : rooms) {
+               this.rooms.add(room);
+           }
+       } else {
+           this.rooms = new HashSet<>();
+       }
     }
 
     @Override
