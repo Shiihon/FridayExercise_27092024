@@ -1,0 +1,31 @@
+## get all hotels
+GET {{URL}}
+
+### Get hotel by id.
+GET {{URL}}/1
+
+### Get rooms by hotel id.
+GET {{URL}}/1/rooms
+
+### Create hotel.
+POST {{URL}}/
+Content-Type: application/json
+
+{
+  "hotelName": "Hotel 3",
+  "hotelAddress": "Adress 3",
+  "rooms": []
+}
+
+### Update hotel
+PUT {{URL}}/1
+Content-Type: application/json
+
+{
+"hotelAddress" : "New updated address"
+}
+
+### Delete hotel by id.
+DELETE {{URL}}/6
+
+

@@ -1,0 +1,631 @@
+DELETE http://localhost:7000/api/room/13
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:7000/api/room/1
+Content-Type: application/json
+Content-Length: 22
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "price" : 5000.0
+}
+
+<> 2024-09-29T155839.200.json
+
+###
+
+PUT http://localhost:7000/api/room/1
+Content-Type: application/json
+Content-Length: 26
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "roomPrice" : 5000.0
+}
+
+<> 2024-09-29T155828.400.json
+
+###
+
+POST http://localhost:7000/api/room
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelId": 6,
+  "roomNumber": 101,
+  "price" : 5222.0
+}
+
+<> 2024-09-29T155819.201.json
+
+###
+
+POST http://localhost:7000/api/room
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelId": 7,
+  "roomNumber": 101,
+  "price" : 5222.0
+}
+
+<> 2024-09-29T155759.400.json
+
+###
+
+GET http://localhost:7000/api/room/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T155751.200.json
+
+###
+
+GET http://localhost:7000/api/room
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T155744.200.json
+
+###
+
+DELETE http://localhost:7000/api/hotel/7
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+GET http://localhost:7000/api/hotel/50
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T155635.404.json
+
+###
+
+PUT http://localhost:7000/api/hotel/1
+Content-Type: application/json
+Content-Length: 48
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelAddress" : "Strandvejen 2, 2200 KBH N"
+}
+
+<> 2024-09-29T155612.200.json
+
+###
+
+GET http://localhost:7000/api/hotel
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T155522.200.json
+
+###
+
+POST http://localhost:7000/api/hotel
+Content-Type: application/json
+Content-Length: 73
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Hotel 3",
+  "hotelAddress": "Adress 3",
+  "rooms": []
+}
+
+<> 2024-09-29T143220.201.json
+
+###
+
+GET http://localhost:7000/api/hotel/1/rooms
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T143158.200.json
+
+###
+
+GET http://localhost:7000/api/hotel/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T143154.200.json
+
+###
+
+GET http://localhost:7000/api/hotel
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T143147.200.json
+
+###
+
+GET http://localhost:7000/api/hotel/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T140103.200.json
+
+###
+
+GET http://localhost:7000/api/hotel
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T140046.200.json
+
+###
+
+PUT http://localhost:7000/api/hotel/1
+Content-Type: application/json
+Content-Length: 42
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelAddress" : "New updated address"
+}
+
+<> 2024-09-29T124845.200.json
+
+###
+
+PUT http://localhost:7000/api/hotel/1
+Content-Type: application/json
+Content-Length: 31
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Ascot Hotel"
+}
+
+<> 2024-09-29T124522.200.json
+
+###
+
+PUT http://localhost:7000/api/hotel/1
+Content-Type: application/json
+Content-Length: 31
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Ascot Hotel"
+}
+
+<> 2024-09-29T124354.200.json
+
+###
+
+PUT http://localhost:7000/api/hotel/1
+Content-Type: application/json
+Content-Length: 32
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Updated name"
+}
+
+<> 2024-09-29T124315.200.json
+
+###
+
+GET http://localhost:7000/api/hotel/1/rooms
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T124106.200.json
+
+###
+
+GET http://localhost:7000/api/hotel/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T124018.200.json
+
+###
+
+POST http://localhost:7000/api/hotel
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms" : []
+}
+
+<> 2024-09-29T123842.201.json
+
+###
+
+POST http://localhost:7000/api/hotel
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms" : []
+}
+
+<> 2024-09-29T123740.201.json
+
+###
+
+POST http://localhost:7000/api/hotel
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms" : []
+}
+
+<> 2024-09-29T123313.400.json
+
+###
+
+POST http://localhost:7000/api/hotel
+Content-Type: application/json
+Content-Length: 259
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms": [
+    {
+      "roomNumber": 265,
+      "price": 5000.0
+    },
+    {
+      "roomNumber": 263,
+      "price": 3000.0
+    },
+    {
+      "roomNumber": 268,
+      "price": 4000.0
+    }
+  ]
+}
+
+###
+
+GET http://localhost:7000/api/hotel
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T121837.200.json
+
+###
+
+GET http://localhost:7000/api
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T121751.404.txt
+
+###
+
+POST http://localhost:7000/api
+Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 259
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms": [
+    {
+      "roomNumber": 265,
+      "price": 5000.0
+    },
+    {
+      "roomNumber": 263,
+      "price": 3000.0
+    },
+    {
+      "roomNumber": 268,
+      "price": 4000.0
+    }
+  ]
+}
+
+<> 2024-09-29T121646.404.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 259
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "hotelName": "Zleep Hotel",
+  "hotelAddress": "Adress 1",
+  "rooms": [
+    {
+      "roomNumber": 265,
+      "price": 5000.0
+    },
+    {
+      "roomNumber": 263,
+      "price": 3000.0
+    },
+    {
+      "roomNumber": 268,
+      "price": 4000.0
+    }
+  ]
+}
+
+<> 2024-09-29T120804.500.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T115555.500.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T015613.500.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T015510.500.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T015446.500.txt
+
+###
+
+POST http://localhost:7000/api/hotel/hotel
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T015437.404.txt
+
+###
+
+POST http://localhost:7000/api/hotel/
+Content-Type: application/json
+Content-Length: 236
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"hotelName" : "Zleep Hotel",
+"hotelAddress" : "Adress 1",
+"rooms" : [
+  {
+    "roomNumber" : 265,
+    "price" : 5000.0
+  },
+  {
+    "roomNumber" : 263,
+    "price" : 3000.0
+  },
+  {
+    "roomNumber" : 268,
+    "price" : 4000.0
+  }
+]
+}
+
+<> 2024-09-29T015342.500.txt
+
+###
+
+GET http://localhost:7000/api/hotel/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-09-29T014716.200.json
+
+###
+

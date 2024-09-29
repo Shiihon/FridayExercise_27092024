@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="028b678d-a69f-41f3-a070-7bffaf20f65d" name="Changes" comment="commit 5 branch" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf ideFingerprint="3mn60cysatmyw" SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/config/HibernateConfig.java">
+          <provider editor-type-id="text-editor" selected="true">
+            <state relative-caret-position="229">
+              <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/entities/Person.java">
+          <provider editor-type-id="text-editor" selected="true">
+            <state relative-caret-position="308">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/Main.java">
+          <provider editor-type-id="text-editor" selected="true">
+            <state relative-caret-position="198">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="HTTP Public Environment File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Shiihon&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Shiihon/FridayExercise_27092024.git&quot;,
+    &quot;accountId&quot;: &quot;c35b67a9-ee98-4019-9e60-407fe8222c10&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2mebgtjg80IegOL4DZuUSvt8R4R" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HotelDAO.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoomDAO.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | Create hotel..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | Delete hotel by id..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | Get hotel by id..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | Get rooms by hotel id..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Hotel | Update hotel.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Room | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Room | Create room..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Room | Delete room.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Room | Get room by id..executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Room | Update room.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.create.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.delete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.getAll.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.HotelDAOTest.getById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.getRoomsByHotelId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HotelDAOTest.update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rest.client.default.execution.environment&quot;: &quot;room&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.daos" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.dtos" />
+      <recent name="org.example.controllers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RoomDAO">
+    <configuration name="HotelDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.daos.HotelDAO" />
+      <module name="fridayExercise_HotelApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.daos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoomDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.daos.RoomDAO" />
+      <module name="fridayExercise_HotelApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.daos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Room | Create room." type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/Room.http" index="3" requestIdentifier="Create room." runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="Room | Delete room" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/Room.http" index="4" requestIdentifier="Delete room" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="Room | Update room" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/main/resources/Room.http" index="4" requestIdentifier="Update room" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RoomDAO" />
+        <item itemvalue="Application.HotelDAO" />
+        <item itemvalue="HTTP Request.Room | Delete room" />
+        <item itemvalue="HTTP Request.Room | Update room" />
+        <item itemvalue="HTTP Request.Room | Create room." />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="028b678d-a69f-41f3-a070-7bffaf20f65d" name="Changes" comment="" />
+      <created>1727440105384</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727440105384</updated>
+      <workItem from="1727440249198" duration="27770000" />
+      <workItem from="1727604251307" duration="14218000" />
+      <workItem from="1727618517786" duration="205000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit 2">
+      <option name="closed" value="true" />
+      <created>1727559647042</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727559647042</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit 3">
+      <option name="closed" value="true" />
+      <created>1727561732737</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727561732737</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit 4 new branch">
+      <option name="closed" value="true" />
+      <created>1727615431394</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727615431394</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit 5 branch">
+      <option name="closed" value="true" />
+      <created>1727618459751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727618459751</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit 2" />
+    <MESSAGE value="commit 3" />
+    <MESSAGE value="commit 4 new branch" />
+    <MESSAGE value="commit 5 branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 5 branch" />
+  </component>
+</project>

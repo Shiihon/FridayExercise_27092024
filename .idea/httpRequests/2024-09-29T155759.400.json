@@ -1,0 +1,4 @@
+{
+  "status": 400,
+  "message": "Hotel with ID 7 does not exist."
+}

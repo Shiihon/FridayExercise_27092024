@@ -1,0 +1,4 @@
+{
+  "status": 400,
+  "message": "Unrecognized field \"roomPrice\" (class org.example.dtos.RoomDTO), not marked as ignorable (4 known properties: \"price\", \"roomNumber\", \"roomId\", \"hotelId\"])\n at [Source: (String)\"{\n  \"roomPrice\" : 5000.0\n}\"; line: 2, column: 23] (through reference chain: org.example.dtos.RoomDTO[\"roomPrice\"])"
+}
