@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <token.security.version>1.0.4</token.security.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
         <logback.version>1.5.8</logback.version>
         <slf4j.version>2.0.16</slf4j.version>
         <javalin.version>6.3.0</javalin.version>
@@ -28,6 +30,13 @@
         <!-- DATABASE PROJECT NAME ON SERVER  -->
         <db.name>jpademo</db.name>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!--  WEB SERVICE   -->
@@ -135,6 +144,17 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>${jbcrypt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.Hartmannsolution</groupId>
+            <artifactId>TokenSecurity</artifactId>
+            <version>${token.security.version}</version>
         </dependency>
     </dependencies>
     <build>

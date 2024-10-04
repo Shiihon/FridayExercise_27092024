@@ -32,11 +32,10 @@ public class HotelDAO implements IDAO<HotelDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             Hotel hotel = em.find(Hotel.class, id);
 
-            if (hotel != null) {
-                return new HotelDTO(hotel);
-            } else {
-                throw new EntityNotFoundException(String.format("Hotel with id %d could not be found.", id));
-            }
+            return new HotelDTO(hotel);
+
+        } catch (NullPointerException e) {
+            throw new EntityNotFoundException(String.format("Hotel with id %d could not be found.", id));
         }
     }
 
