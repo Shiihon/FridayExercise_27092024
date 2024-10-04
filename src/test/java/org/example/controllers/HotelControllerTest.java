@@ -11,6 +11,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.List;
 
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -72,4 +73,39 @@ class HotelControllerTest {
         assertEquals(3, hotels.length);
         assertThat(hotels, arrayContainingInAnyOrder(h1, h2, h3));
     }
+
+    @Test
+    void testGetById(){
+        HotelDTO hotelDTO =
+                given()
+                        .when()
+                        .get(BASE_URL + "/hotel/" + h1.getId())
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .as(HotelDTO.class);
+
+        assertThat(hotelDTO, equalTo(h1));
+    }
+
+    @Test
+    void testGetAllRoomsByHotel(){
+
+    }
+
+    @Test
+    void testCreate(){
+
+    }
+
+    @Test
+    void testUpdate(){
+
+    }
+
+    @Test
+    void testDelete(){
+
+    }
+
 }
