@@ -39,6 +39,11 @@ public class Hotel {
        }
     }
 
+    public void addRoom(Room room){
+        this.rooms.add(room);
+        room.setHotel(this);
+    }
+
     @Override
     public String toString() {
         return "Hotel { " +

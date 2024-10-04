@@ -15,6 +15,7 @@ public class SecurityRoutes {
     private static ObjectMapper jsonMapper = new Utils().getObjectMapper();
     // TODO : SOLVE PROBLEM WITH INJECTING EntityManagerFactory
     private static SecurityController securityController = SecurityController.getInstance();
+
     public static EndpointGroup getSecurityRoutes() {
         return ()->{
             path("/auth", ()->{

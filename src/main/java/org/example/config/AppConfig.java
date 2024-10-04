@@ -3,6 +3,7 @@ package org.example.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.bugelhartmann.UserDTO;
 import io.javalin.http.HttpStatus;
+import jakarta.persistence.EntityManagerFactory;
 import org.example.controllers.ExceptionController;
 import org.example.exceptions.ApiException;
 import org.example.routes.Routes;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class AppConfig {
 
-    private static final Routes routes = new Routes();
+    private static Routes routes;
     private static final ExceptionController exceptionController = new ExceptionController();
     private static final SecurityRoutes securityRoutes = new SecurityRoutes();
     private static ObjectMapper jsonMapper = new Utils().getObjectMapper();
@@ -45,7 +46,8 @@ public class AppConfig {
         app.exception(ApiException.class, exceptionController::apiExceptionHandler);
     }
 
-    public static void startServer() {
+    public static void startServer(EntityManagerFactory emf) {
+        routes = new Routes(emf);
         Javalin app = Javalin.create(AppConfig::configuration);
 
         app.beforeMatched(ctx -> { // Before matched is different from before, in that it is not called for 404 etc.
@@ -73,5 +75,10 @@ public class AppConfig {
 
         app.start(ApiProps.PORT);
         exceptionContext(app);
+    }
+
+    public static void stopServer() {
+        Javalin app = Javalin.create(AppConfig::configuration);
+        app.stop();
     }
 }
