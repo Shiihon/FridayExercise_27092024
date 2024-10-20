@@ -3,6 +3,8 @@ package org.example.config;
 import jakarta.persistence.EntityManagerFactory;
 import org.example.entities.Hotel;
 import org.example.entities.Room;
+import org.example.security.entities.Role;
+import org.example.security.entities.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -35,6 +37,8 @@ public class HibernateConfig {
         //configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Hotel.class);
         configuration.addAnnotatedClass(Room.class);
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(Role.class);
     }
 
     private static EntityManagerFactory createEMF(boolean forTest, String DBName) {

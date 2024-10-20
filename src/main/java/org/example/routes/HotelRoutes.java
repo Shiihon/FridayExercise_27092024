@@ -4,6 +4,7 @@ import io.javalin.apibuilder.EndpointGroup;
 import jakarta.persistence.EntityManagerFactory;
 import org.example.controllers.HotelController;
 import org.example.daos.HotelDAO;
+import org.example.security.routes.SecurityRoutes;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 import static io.javalin.apibuilder.ApiBuilder.delete;
@@ -18,13 +19,12 @@ public class HotelRoutes {
 
     public EndpointGroup getHotelRoutes() {
         return () -> {
-
-            get("/", hotelController::getAll);
-            get("/{id}", hotelController::getById);
-            get("/{id}/rooms", hotelController::getAllRoomsByHotel);
-            post("/", hotelController::create);
-            put("/{id}", hotelController::update);
-            delete("/{id}", hotelController::delete);
+            get("/", hotelController::getAll, SecurityRoutes.Role.USER, SecurityRoutes.Role.ADMIN);
+            get("/{id}", hotelController::getById, SecurityRoutes.Role.USER, SecurityRoutes.Role.ADMIN);
+            get("/{id}/rooms", hotelController::getAllRoomsByHotel, SecurityRoutes.Role.ADMIN, SecurityRoutes.Role.USER);
+            post("/", hotelController::create, SecurityRoutes.Role.ADMIN);
+            put("/{id}", hotelController::update, SecurityRoutes.Role.ADMIN);
+            delete("/{id}", hotelController::delete, SecurityRoutes.Role.ADMIN);
         };
     }
 }

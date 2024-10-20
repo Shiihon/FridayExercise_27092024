@@ -10,7 +10,7 @@ public class ExceptionController {
     private final Logger log = LoggerFactory.getLogger(ExceptionController.class);
 
     public void apiExceptionHandler(ApiException e, Context ctx) {
-        log.error("{} {}", ctx.res().getStatus(), e.getStatusCode());
+        log.error("{} {}", e.getStatusCode(), e.getMessage());
         ctx.status(e.getStatusCode());
         ctx.json(new Message(e.getStatusCode(), e.getMessage()));
     }

@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import org.example.controllers.ExceptionController;
 import org.example.exceptions.ApiException;
 import org.example.routes.Routes;
+import org.example.security.controller.AccessController;
 import org.example.security.controller.SecurityController;
 import org.example.security.routes.SecurityRoutes;
 import org.example.util.ApiProps;
@@ -14,10 +15,11 @@ import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
 import lombok.NoArgsConstructor;
 import org.example.util.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Set;
 import java.util.stream.Collectors;
-
 
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
@@ -25,8 +27,10 @@ public class AppConfig {
 
     private static Routes routes;
     private static final ExceptionController exceptionController = new ExceptionController();
-    private static final SecurityRoutes securityRoutes = new SecurityRoutes();
+    private static SecurityRoutes securityRoutes;
     private static ObjectMapper jsonMapper = new Utils().getObjectMapper();
+    private static Logger logger = LoggerFactory.getLogger(AppConfig.class); //logger ansvarlig for appconfig filen.
+    private static SecurityController securityController;
 
     private static void configuration(JavalinConfig config) {
         //Server
@@ -38,47 +42,36 @@ public class AppConfig {
 
         // Routes
         config.router.apiBuilder(routes.getApiRoutes());
-        config.router.apiBuilder(SecurityRoutes.getSecuredRoutes());
+        config.router.apiBuilder(securityRoutes.getSecuredRoutes());
+        config.router.apiBuilder(securityRoutes.getSecurityRoutes());
     }
 
     //Exceptions
     private static void exceptionContext(Javalin app) {
         app.exception(ApiException.class, exceptionController::apiExceptionHandler);
+
+        app.exception(Exception.class, (e, ctx) -> {
+            logger.error("{} {}", 400, e.getMessage());
+            ctx.status(400);
+            ctx.result(e.getMessage());
+        });
     }
 
-    public static void startServer(EntityManagerFactory emf) {
+    public static Javalin startServer(EntityManagerFactory emf) {
+        logger.info("Starting the Javalin server...");  // <--- Log here
+
         routes = new Routes(emf);
+        securityRoutes = new SecurityRoutes(emf);
         Javalin app = Javalin.create(AppConfig::configuration);
+        AccessController accessController = new AccessController(emf);
 
-        app.beforeMatched(ctx -> { // Before matched is different from before, in that it is not called for 404 etc.
-            if (ctx.routeRoles().isEmpty()) // no roles were added to the route endpoint so OK
-                return;
-            // 1. Get permitted roles
-            Set<String> allowedRoles = ctx.routeRoles().stream().map(role -> role.toString().toUpperCase()).collect(Collectors.toSet());
-            if (allowedRoles.contains("ANYONE")) {
-                return;
-            }
-            // 2. Get user roles
-            UserDTO user = ctx.attribute("user"); // the User was put in the context by the SecurityController.authenticate method (in a before filter on the route)
-
-            // 3. Compare
-            if (user == null)
-                ctx.status(HttpStatus.FORBIDDEN)
-                        .json(jsonMapper.createObjectNode()
-                                .put("msg", "Not authorized. No username was added from the token"));
-
-            if (!SecurityController.getInstance().authorize(user, allowedRoles)) {
-                // throw new UnAuthorizedResponse(); // version 6 migration guide
-                throw new ApiException(HttpStatus.FORBIDDEN.getCode(), "Unauthorized with roles: " + user.getRoles() + ". Needed roles are: " + allowedRoles);
-            }
-        });
-
+        app.beforeMatched(accessController::accessHandler); // metoden håndtere access.
         app.start(ApiProps.PORT);
         exceptionContext(app);
+        return app;
     }
 
-    public static void stopServer() {
-        Javalin app = Javalin.create(AppConfig::configuration);
+    public static void stopServer(Javalin app) {
         app.stop();
     }
 }

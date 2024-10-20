@@ -1,0 +1,18 @@
+### register user
+POST {{URL}}/register
+Content-Type: application/json
+
+{
+  "username" : "Nanna",
+  "password" : "1234"
+}
+
+### login
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+  "username" : "Nanna",
+  "password" : "1234"
+}
+

@@ -2,6 +2,7 @@ package org.example.routes;
 
 import io.javalin.apibuilder.EndpointGroup;
 import jakarta.persistence.EntityManagerFactory;
+import org.example.security.routes.SecurityRoutes;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 

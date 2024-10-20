@@ -29,15 +29,15 @@
     </appender>
 
     <!-- Logger -->
-    <logger name="app" level="ERROR">
+    <logger name="org.example" level="ERROR">
         <appender-ref ref="FILE"/>
     </logger>
 
-    <logger name="app" level="WARN">
+    <logger name="org.example" level="WARN">
         <appender-ref ref="FILE"/>
     </logger>
 
-    <logger name="app" level="INFO" additivity="false">
+    <logger name="org.example" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 

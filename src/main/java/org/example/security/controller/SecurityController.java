@@ -1,6 +1,7 @@
 package org.example.security.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import jakarta.persistence.EntityManagerFactory;
 import org.example.config.HibernateConfig;
 import org.example.exceptions.ApiException;
 import org.example.security.exceptions.NotAuthorizedException;
@@ -30,14 +31,15 @@ public class SecurityController implements ISecurityController {
     private static ISecurityDAO securityDAO;
     private static SecurityController instance;
 
-    private SecurityController() { }
+    private SecurityController(EntityManagerFactory emf) {
+        securityDAO = new SecurityDAO(emf);
+    }
 
 
-    public static SecurityController getInstance() { // Singleton because we don't want multiple instances of the same class
+    public static SecurityController getInstance(EntityManagerFactory emf) { // Singleton because we don't want multiple instances of the same class
         if (instance == null) {
-            instance = new SecurityController();
+            instance = new SecurityController(emf);
         }
-        securityDAO = new SecurityDAO(HibernateConfig.getEntityManagerFactory("hotel"));
         return instance;
     }
 
@@ -55,14 +57,8 @@ public class SecurityController implements ISecurityController {
                         .put("username", verifiedUser.getUsername()));
 
             } catch (EntityNotFoundException | ValidationException e) {
-                ctx.status(401);
-                System.out.println(e.getMessage());
-                ctx.json(returnObject.put("msg", e.getMessage()));
+                throw new ApiException(400, e.getMessage());
             }
-//            catch (Exception e) {
-//                e.printStackTrace();
-//                throw new ApiException(500, "Internal server error");
-//            }
         };
     }
 

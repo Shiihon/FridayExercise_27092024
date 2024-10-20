@@ -9,11 +9,12 @@ GET {{URL}}/1/rooms
 
 ### Create hotel.
 POST {{URL}}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUaG9tYXMgSGFydG1hbm4iLCJzdWIiOiJOYW5uYSIsImV4cCI6MTcyODU1Njk3Niwicm9sZXMiOiJhZG1pbiIsInVzZXJuYW1lIjoiTmFubmEifQ.cGzkyB8C0IZolRM6ruab1U7hDV80PP9U5XivUU58qxM
 Content-Type: application/json
 
 {
-  "hotelName": "Hotel 3",
-  "hotelAddress": "Adress 3",
+  "hotelName": "Hotel 4",
+  "hotelAddress": "Adress 4",
   "rooms": []
 }
 
